@@ -1,6 +1,7 @@
 import images from './../assets/images/images.jpg'
 
- function App (){
+
+ function Hero(){
     return(
         <div className="hero">
             <div className="hero-container">
@@ -9,7 +10,7 @@ import images from './../assets/images/images.jpg'
                 <h3>a Software Developer</h3>
                 </div>
             </div>
-            <div className="hero-containter">
+            <div className="hero-containters">
                 <div className="content-container">
                     <div className="img-content">
                         <img src = {images}/>
@@ -21,4 +22,4 @@ import images from './../assets/images/images.jpg'
     )
 }
 
-export default App
+export default Hero

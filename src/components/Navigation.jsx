@@ -2,8 +2,8 @@
 
 function App(){
     return(
-        <div>
-            <div>Home</div>
+        <div className="header">
+            <div>Dave</div>
         </div>
     )
 }
