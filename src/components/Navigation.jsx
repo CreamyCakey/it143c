@@ -6,8 +6,8 @@ function Navigation() {
             <div className="logo">Dave</div>
             <nav className="nav">
                 <ul>
-                    <li><a Link to="/">Home</a></li>
-                    <li><a Link to="/aboutme">About Me</a></li>
+                    <li><Link to="/">Home </Link></li>
+                    <li><Link to="/aboutme">About Me</Link></li>
                 </ul>
             </nav>
         </div>
