@@ -1,17 +1,20 @@
-import Hero from './components/Hero'
-import Navigation from './components/navigation'
-import './index.css'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Hero from './components/Hero';
+import AboutMe from './components/pages/aboutme';
+import Navigation from './components/Navigation';
+import './index.css';
+import './App.css';
 
-
-function App(){
-  return(
-    <>
-    <Navigation/>
-    <Hero/>
-    </>
-
-  )
+function App() {
+  return (
+    <Router>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/aboutme" element={<AboutMe />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

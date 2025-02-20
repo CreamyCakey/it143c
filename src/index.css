@@ -1,5 +1,5 @@
-* {
-  background-image: url('./assets/images/space.gif');
+*{
+  background-image: url('/src/assets/images/space.gif');
   outline-color: white;
   font-family: 'Arial', sans-serif;
   font-weight: bolder;
@@ -41,20 +41,83 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.header {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  padding-left: 20vh;
-  color: white;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
 .img-content img {
   border-radius: 10%;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   border: 2px solid wheat;
   max-width: 100%;
   height: auto;
+}
+
+.aboutme {
+  position: relative;
+  background: url('./../../assets/images/background.jpg') no-repeat center center/cover;
+  color: white;
+  padding: 50px 0;
+}
+
+.aboutme-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutme-content {
+  max-width: 800px;
+  margin: 0 auto 20px auto; /* Center and add margin below */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text visibility */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.aboutme-img-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Adjusted to place the image above the text */
+}
+
+.aboutme-img-content img {
+  max-width: 250px;
+  border-radius: 50%;
+  border: 6px solid white;
+}
+
+/* Navigation bar styles */
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between; /* Space between logo and nav */
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+  font-size: 20px;
+  background-color: #333; /* Background color for the header */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin-left: 20px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav a:hover {
+  text-decoration: underline;
 }

@@ -1,11 +1,17 @@
+import React from 'react';
 
-
-function App(){
-    return(
+function Navigation() {
+    return (
         <div className="header">
-            <div>Dave</div>
+            <div className="logo">Dave</div>
+            <nav className="nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/aboutme">About Me</a></li>
+                </ul>
+            </nav>
         </div>
-    )
+    );
 }
 
-export default App
+export default Navigation;
