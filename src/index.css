@@ -19,7 +19,7 @@
 }
 
 .content {
-  color: white;
+  color: #eee5da;
   padding: 20px;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .name {
-  color: white;
+  color: #eee5da;
 }
 
 .content-container {
@@ -44,7 +44,7 @@
 .img-content img {
   border-radius: 10%;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  border: 2px solid wheat;
+  border: 2px solid white;
   max-width: 100%;
   height: auto;
 }
@@ -52,7 +52,7 @@
 .aboutme {
   position: relative;
   background: url('./../../assets/images/background.jpg') no-repeat center center/cover;
-  color: white;
+  color: #f1f1f1;
   padding: 50px 0;
 }
 
@@ -93,7 +93,7 @@
   padding: 0 20px;
   color: white;
   font-size: 20px;
-  background-color: #333; /* Background color for the header */
+  background-color: #dfe8e6; /* Background color for the header */
 }
 
 .logo {
@@ -120,4 +120,48 @@
 
 .nav a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 20px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav li {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .aboutme-content {
+    padding: 10px;
+  }
+
+  .aboutme-img-content img {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 50vh;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .aboutme-content {
+    padding: 5px;
+  }
+
+  .aboutme-img-content img {
+    max-width: 100px;
+  }
 }
