@@ -1,0 +1,17 @@
+@media (max-width: 700px) {
+    .mobile-reverseFlex {
+        flex-wrap: wrap-reverse;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .text-intro{
+        text-align: center;
+    }
+    .button-intro{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+  }
+  
