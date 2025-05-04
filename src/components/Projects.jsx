@@ -55,6 +55,14 @@ const Projects = ({ theme }) => {
       live: "#",
       image: "todolist.png",
     },
+    {
+      title: "Pokemon App",
+      description: "Experience on how to be a Pokemon Trainer.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      github: "https://github.com/CreamyCakey/poke-app.git",
+      live: "#",
+      image: "poke.png",
+    },
   ];
 
   useEffect(() => {
