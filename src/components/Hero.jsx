@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Github, Linkedin, Mail } from "lucide-react";
+import { Download, Facebook, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import './Hero.css'
 
@@ -22,7 +22,7 @@ const Hero = ({ theme }) => {
             </h2>
             <p className="text-lg mb-8 text-intro">
               Passionate about UI designing and development, creating
-              user-friendly designs.
+              user-friendly systems.
             </p>
             <div className="flex flex-wrap gap-4 button-intro">
               <motion.div
@@ -88,6 +88,21 @@ const Hero = ({ theme }) => {
               >
                 <Linkedin size={20} />
               </a>
+              <a
+                href="https://www.facebook.com/creamycakey"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-3 rounded-full ${
+                  theme === "dark"
+                    ? "bg-gray-700 hover:bg-gray-600 text-white"
+                    : theme === "beige"
+                    ? "bg-beige-300 hover:bg-beige-400 text-gray-800"
+                    : "bg-gray-200 hover:bg-gray-300 text-gray-800"
+                }`}
+              >
+                <Facebook size={20} />
+              </a>
+
             </div>
           </motion.div>
 
@@ -98,7 +113,7 @@ const Hero = ({ theme }) => {
             className="md:w-1/2 flex justify-center"
           >
             <div
-              className={`w-65 h-55 md:w-65 md:h-65 square-full overflow-hidden  ${
+              className={`w-68 h-65 md:w-68 md:h-70 square-full overflow-hidden  ${
                 theme === "dark"
                   ? "border-gray-700"
                   : theme === "beige"

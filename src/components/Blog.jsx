@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Blog = ({ theme }) => {
   const navigate = useNavigate();
+  const [loadedImages, setLoadedImages] = useState({});
   
   const blogPosts = [
     {
@@ -14,7 +16,7 @@ const Blog = ({ theme }) => {
       day: "Day 1",
       readTime: "5 min read",
       location: "Manila, Philippines",
-      image: "../images//day1/day1.1.jpg",
+      image: "day1/day1.1.jpg",
     },
     {
       id: 2,
@@ -24,7 +26,7 @@ const Blog = ({ theme }) => {
       day: "Day 2",
       readTime: "7 min read",
       location: "Subic Bay, Philippines",
-      image: "../images/day2/day2.jpg",
+      image: "day2/day2.jpg",
     },
     {
       id: 3,
@@ -34,9 +36,17 @@ const Blog = ({ theme }) => {
       day: "Day 3",
       readTime: "6 min read",
       location: "Manila, Philippines",
-      image: "../images/day3/day3.4.jpg",
+      image: "day3/day3.4.jpg",
     },
   ];
+
+  const handleImageLoad = (id) => {
+    setLoadedImages(prev => ({ ...prev, [id]: true }));
+  };
+
+  const handleImageError = (id) => {
+    setLoadedImages(prev => ({ ...prev, [id]: false }));
+  };
 
   return (
     <section className="py-12 md:py-20">
@@ -67,7 +77,7 @@ const Blog = ({ theme }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              onClick={() => navigate(`/travel-day-${post.id}`)}
+              onClick={() => navigate(`/travel-day/${post.id}`)}
               className={`rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer ${
                 theme === "dark"
                   ? "bg-gray-800 hover:bg-gray-750"
@@ -80,8 +90,17 @@ const Blog = ({ theme }) => {
                 <img
                   src={`/images/${post.image}`}
                   alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  className={`w-full h-full object-cover transition-transform duration-500 hover:scale-110 ${
+                    !loadedImages[post.id] ? 'hidden' : ''
+                  }`}
+                  onLoad={() => handleImageLoad(post.id)}
+                  onError={() => handleImageError(post.id)}
                 />
+                {!loadedImages[post.id] && (
+                  <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                    <span>Loading image...</span>
+                  </div>
+                )}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                   <span
                     className={`inline-block px-3 py-1 text-xs font-semibold rounded-full ${

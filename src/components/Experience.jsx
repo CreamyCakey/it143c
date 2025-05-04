@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Experience = ({ theme }) => {
+  const [isMounted, setIsMounted] = useState(false);
   const experiences = [
     {
       type: "work",
@@ -32,14 +34,22 @@ const Experience = ({ theme }) => {
     },
   ];
 
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+
+  if (!isMounted) {
+    return null; // or return a loading spinner
+  }
+
   return (
     <section className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -59,10 +69,9 @@ const Experience = ({ theme }) => {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
               className={`p-6 rounded-xl shadow-lg ${
                 theme === "dark"
                   ? "bg-gray-800"

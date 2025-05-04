@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Contact = ({ theme }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,12 @@ const Contact = ({ theme }) => {
     email: "",
     message: "",
   });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,14 +34,18 @@ const Contact = ({ theme }) => {
     });
   };
 
+  if (!isMounted) {
+    return null; // or return a loading spinner
+  }
+
   return (
     <section className="py-12 md:py-20" id="contact">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
+          key={`contact-header-${isMounted}`}
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Me</h2>
@@ -51,10 +61,10 @@ const Contact = ({ theme }) => {
 
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div
+            key={`contact-info-${isMounted}`}
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className={`p-6 rounded-lg ${
               theme === "dark"
                 ? "bg-gray-800"
@@ -120,10 +130,10 @@ const Contact = ({ theme }) => {
           </motion.div>
 
           <motion.div
+            key={`contact-form-${isMounted}`}
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className={`p-6 rounded-lg ${
               theme === "dark"
                 ? "bg-gray-800"

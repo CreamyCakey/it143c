@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { BookOpen, GraduationCap, User } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const About = ({ theme }) => {
+  const [isMounted, setIsMounted] = useState(false);
   const education = [
     {
       year: "2021 - Present",
@@ -15,14 +17,22 @@ const About = ({ theme }) => {
     },
   ];
 
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+
+  if (!isMounted) {
+    return null; // or return a loading spinner
+  }
+
   return (
     <section className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-2">
@@ -34,18 +44,17 @@ const About = ({ theme }) => {
             }`}
           ></div>
           <p className="max-w-2xl mx-auto text-lg">
-          Hey there! I'm an energetic and passionate individual who loves bringing positivity and 
-          creativity into everything I do. With a warm personality and a fun-loving spirit, 
-          I thrive on connecting with people, embracing new experiences, and making every moment exciting.
+            Hey there! I'm an energetic and passionate individual who loves bringing positivity and 
+            creativity into everything I do. With a warm personality and a fun-loving spirit, 
+            I thrive on connecting with people, embracing new experiences, and making every moment exciting.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
             className={`p-6 rounded-lg ${
               theme === "dark"
                 ? "bg-gray-800"
@@ -65,9 +74,8 @@ const About = ({ theme }) => {
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
             className={`p-6 rounded-lg ${
               theme === "dark"
                 ? "bg-gray-800"
@@ -103,9 +111,8 @@ const About = ({ theme }) => {
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
           className={`mt-8 p-6 rounded-lg ${
             theme === "dark"
               ? "bg-gray-800"

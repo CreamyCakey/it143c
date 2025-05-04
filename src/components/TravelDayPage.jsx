@@ -27,7 +27,6 @@ const TravelDayPage = ({ theme }) => {
         "/images/day1/day1.1.jpg",
         "/images/day1/day1.2.jpg",
         "/images/day1/day1.4.jpg",
-        "/images/day1/day1.jpg",
         "/images/day1/day1.3.jpg",
       ],
       readTime: "5 min read"
@@ -86,7 +85,6 @@ const TravelDayPage = ({ theme }) => {
       images: [
         "/images/day5/day5.1.jpg",
         "/images/day5/day5.jpg",
-        "/images/day5/day5.4.jpg",
         "/images/day5/day5.2.jpg",
         "/images/day5/day5.3.jpg",
       ],
@@ -102,7 +100,6 @@ const TravelDayPage = ({ theme }) => {
         "/images/day6/day6.6.jpg",
         "/images/day6/day6.1.jpg",
         "/images/day6/day6.5.jpg",
-        "/images/day6/day6.6.jpg",
       ],
       readTime: "9 min read"
     },

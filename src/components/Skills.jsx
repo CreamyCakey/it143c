@@ -1,7 +1,16 @@
 import { motion } from "framer-motion";
 import { Code, Database, Palette, Smartphone } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Skills = ({ theme }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+
   const skills = [
     {
       category: "Frontend",
@@ -22,14 +31,26 @@ const Skills = ({ theme }) => {
     },
   ];
 
+  if (!isMounted) {
+    return (
+      <section className="py-12 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="h-96 flex items-center justify-center">
+            Loading skills...
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="py-12 md:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
+          key={`skills-header-${isMounted}`}
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          animate={isMounted ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
@@ -46,11 +67,11 @@ const Skills = ({ theme }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
           {skills.map((skill, index) => (
             <motion.div
-              key={index}
+              key={`skill-${index}-${isMounted}`}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={isMounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              onAnimationComplete={() => setHasAnimated(true)}
               className={`p-6 rounded-lg ${
                 theme === "dark"
                   ? "bg-gray-800"
@@ -85,12 +106,14 @@ const Skills = ({ theme }) => {
                         theme === "dark" ? "bg-gray-700" : "bg-gray-300"
                       }`}
                     >
-                      <div
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={isMounted ? { width: `${item.level}%` } : {}}
+                        transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
                         className={`h-full rounded-full ${
                           theme === "dark" ? "bg-blue-500" : "bg-blue-600"
                         }`}
-                        style={{ width: `${item.level}%` }}
-                      ></div>
+                      />
                     </div>
                   </div>
                 ))}
