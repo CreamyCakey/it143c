@@ -34,7 +34,7 @@ const Projects = ({ theme }) => {
     {
       title: "On The Way We Trust",
       description: "A project based on PHP and MySQL.",
-      tags: ["HTML", "CSS", "MDjango"],
+      tags: ["HTML", "CSS", "PHP", "MySQL"],
       github: "https://github.com/AldwinRayAguilo/OTWT.git",
       live: "#",
       image: "otwt.png",
