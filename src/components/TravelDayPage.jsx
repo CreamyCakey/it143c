@@ -165,8 +165,11 @@ const TravelDayPage = ({ theme }) => {
             theme === "beige" ? "bg-beige-200" :
             "bg-gray-100"
           }`}>
-            <h2 className="text-xl font-bold mb-6">Philippines Itinerary</h2>
-            <div className="space-y-2">
+            {/* Show title only on desktop */}
+            <h2 className="text-xl font-bold mb-6 lg:block hidden">Philippines Itinerary</h2>
+            
+            {/* Desktop View - Full List */}
+            <div className="space-y-2 lg:block hidden">
               {[1, 2, 3, 4, 5, 6, 7].map((day) => (
                 <button
                   key={day}
@@ -189,6 +192,41 @@ const TravelDayPage = ({ theme }) => {
                   <div className="text-sm truncate">{travelDays[day].title}</div>
                 </button>
               ))}
+            </div>
+            
+            {/* Mobile View - Compact Navigation */}
+            <div className="lg:hidden flex items-center justify-between gap-2">
+              <button 
+                onClick={goToPreviousDay}
+                disabled={activeDay === 1}
+                className={`p-2 rounded-lg ${
+                  activeDay === 1 ? "opacity-50 cursor-not-allowed" : ""
+                } ${
+                  theme === "dark" ? "bg-gray-700 hover:bg-gray-600" :
+                  theme === "beige" ? "bg-beige-300 hover:bg-beige-400" :
+                  "bg-gray-200 hover:bg-gray-300"
+                }`}
+              >
+                <ChevronLeft size={20} />
+              </button>
+              
+              <div className="flex-1 text-center font-medium">
+                Day {activeDay}
+              </div>
+              
+              <button 
+                onClick={goToNextDay}
+                disabled={activeDay === 7}
+                className={`p-2 rounded-lg ${
+                  activeDay === 7 ? "opacity-50 cursor-not-allowed" : ""
+                } ${
+                  theme === "dark" ? "bg-gray-700 hover:bg-gray-600" :
+                  theme === "beige" ? "bg-beige-300 hover:bg-beige-400" :
+                  "bg-gray-200 hover:bg-gray-300"
+                }`}
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
           </div>
 
@@ -283,7 +321,7 @@ const TravelDayPage = ({ theme }) => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default TravelDayPage;
