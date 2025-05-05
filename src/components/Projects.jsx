@@ -60,7 +60,7 @@ const Projects = ({ theme }) => {
       description: "Experience on how to be a Pokemon Trainer.",
       tags: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/CreamyCakey/poke-app.git",
-      live: "#",
+      live: "https://pokedexsitee.netlify.app/",
       image: "poke.png",
     },
   ];
