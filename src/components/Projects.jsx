@@ -26,7 +26,7 @@ const Projects = ({ theme }) => {
     {
       title: "On The Way We Trust",
       description: "A project based on Django.",
-      tags: ["HTML", "CSS", "MDjango"],
+      tags: ["HTML", "CSS", "Django"],
       github: "https://github.com/CreamyCakey/django.git",
       live: "#",
       image: "otwt.png",
