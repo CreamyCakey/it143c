@@ -75,7 +75,7 @@ const Hero = ({ theme }) => {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/dabiiid/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`p-3 rounded-full ${
