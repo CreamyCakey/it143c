@@ -13,7 +13,9 @@ const Navbar = ({ theme, toggleTheme }) => {
     { name: "Skills", path: "/skills" },
     { name: "Projects", path: "/projects" },
     { name: "Blog", path: "/blog" },
+    { name: "Certificates", path: "/certificates" },
     { name: "Contact", path: "/contact" },
+    // Dynamic route for travel day
   ];
 
   return (

@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Blog from "./components/Blog";
 import Experience from "./components/Experience";
 import TravelDayPage from "./components/TravelDayPage";
+import Certificate from "./components/Certificate";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/blog" element={<Blog theme={theme} />} />
         <Route path="/experience" element={<Experience theme={theme} />} />
         <Route path="/contact" element={<Contact theme={theme} />} />
+        <Route path="/certificates" element={<Certificate theme={theme} />} />
         - <Route path="/travel-day-:dayId" element={<TravelDayPage theme={theme} />} />
         + <Route path="/travel-day/:dayId" element={<TravelDayPage theme={theme} />} />
         <Route path="/travel-full-journal" element={<TravelDayPage theme={theme} initialDay={1} />} />
